@@ -1,13 +1,12 @@
-@import "tailwindcss";
-
 body {
     background-color: #334155;
     color: #e5e7eb; 
 }
 
-@layer utilities {
-  .scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: #6b7280 transparent;
-  }
+.dark-color-bg {
+  background-color: #1c232e;
+}
+
+.dark-color-bg-card {
+  background-color: #334155;
 }
