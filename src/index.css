@@ -6,25 +6,8 @@ body {
 }
 
 @layer utilities {
-  .scrollbar::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  .scrollbar::-webkit-scrollbar-track {
-    background: #1f2937;
-    border-radius: 100vh;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb {
-    background: #4b5563;
-    border-radius: 100vh;
-    border: 3px solid #f6f7ed;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #6b7280;
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #6b7280 transparent;
   }
 }
-
-  
