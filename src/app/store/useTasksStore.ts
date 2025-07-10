@@ -1,10 +1,5 @@
 import { create } from "zustand";
-
-type Task = {
-    id: string,
-    title: string,
-    decription: string
-}
+import type { Task } from "../types/Task";
 
 type State = {
     tasks: Task[],

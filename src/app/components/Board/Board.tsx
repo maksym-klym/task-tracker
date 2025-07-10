@@ -5,13 +5,13 @@ export function Board() {
     <div className="container my-4">
       <div className="row g-4">
         <div className="col-md-4">
-          <Column title="To Do" />
+          <Column title="To Do" columnId={1}/>
         </div>
         <div className="col-md-4">
-          <Column title="In Progress" />
+          <Column title="In Progress" columnId={2}/>
         </div>
         <div className="col-md-4">
-          <Column title="Done" />
+          <Column title="Done" columnId={3}/>
         </div>
       </div>
     </div>
