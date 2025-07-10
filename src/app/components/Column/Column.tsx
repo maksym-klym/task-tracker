@@ -1,6 +1,6 @@
 import { useTasksStore } from "../../store/useTasksStore";
 import TaskCard from "../TaskCard/TaskCard";
-import TaskModal from "../TaskModal/TaskModal";
+import TaskModal from "../CreateTaskModal/CreateTaskModal";
 
 type ColumnProps = {
   title: string;
