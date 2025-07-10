@@ -7,7 +7,7 @@ body {
   background-color: #1c232e;
 }
 
-.dark-color-bg-card {
+.dark-color-bg-card, .dropdown-menu-dark {
   background-color: #334155;
 }
 
@@ -16,7 +16,8 @@ body {
 }
 
 .card-description { 
-  max-height: 100px;
+  min-height: 7.5vh;
+  max-height: 13vh;
 }
 
 .task-list, .card-description {
