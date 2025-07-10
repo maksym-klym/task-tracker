@@ -10,3 +10,16 @@ body {
 .dark-color-bg-card {
   background-color: #334155;
 }
+
+.task-list {
+  max-height: 67vh;
+}
+
+.card-description { 
+  max-height: 100px;
+}
+
+.task-list, .card-description {
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+}

@@ -9,7 +9,7 @@ export function TaskCard({ task }: TaskCardProps) {
     <div className="card mb-3 border-0 shadow-sm dark-color-bg-card text-white">
       <div className="card-body">
         <h4 className="card-title">{task.title}</h4>
-        <p className="card-text overflow-auto" style={{ maxHeight: '100px' }}>
+        <p className="card-text overflow-auto card-description">
           {task.description}
         </p>
       </div>
