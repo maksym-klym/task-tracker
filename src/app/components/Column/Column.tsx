@@ -1,6 +1,6 @@
 import { useTasksStore } from "../../store/useTasksStore";
 import TaskCard from "../TaskCard/TaskCard";
-import TaskModal from "../CreateTaskModal/CreateTaskModal";
+import CreatedTaskModal from "../CreateTaskModal/CreateTaskModal";
 
 type ColumnProps = {
   title: string;
@@ -9,6 +9,7 @@ type ColumnProps = {
 
 export function Column({ title, columnId }: ColumnProps) {
   const tasks = useTasksStore((state) => state.tasks);
+  
   return (
     <div className="card text-white shadow dark-color-bg">
       <div className="card-body d-flex flex-column">
@@ -28,7 +29,7 @@ export function Column({ title, columnId }: ColumnProps) {
           + Add Task
         </button>
 
-        <TaskModal columnId={columnId} modalId={`taskModal-${columnId}`} />
+        <CreatedTaskModal columnId={columnId} modalId={`taskModal-${columnId}`} />
       </div>
     </div>
   );

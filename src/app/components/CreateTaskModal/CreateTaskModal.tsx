@@ -5,16 +5,16 @@ import type { Task } from "../../types/Task";
 
 type CreateTaskModalProps = {
   columnId: number;
-  modalId: string; 
+  modalId: string;
 };
 
-export default function TaskModal({columnId, modalId}: CreateTaskModalProps) {
+export default function CreatedTaskModal({ columnId, modalId }: CreateTaskModalProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { addTask } = useTasksStore();
 
   const handleAddTask = () => {
-    if (!title.trim() || !description.trim()){
+    if (!title.trim() || !description.trim()) {
       return;
     }
 
@@ -24,7 +24,7 @@ export default function TaskModal({columnId, modalId}: CreateTaskModalProps) {
       description,
       columnId,
     }
-    
+
     addTask(newTask);
 
     setTitle('');
@@ -32,7 +32,6 @@ export default function TaskModal({columnId, modalId}: CreateTaskModalProps) {
   };
 
   return (
-
     <div
       className="modal fade"
       id={modalId}

@@ -7,7 +7,7 @@ type EditTaskModalProps = {
     modalId: string;
 };
 
-export default function TaskModal({ task, modalId }: EditTaskModalProps) {
+export default function EditTaskModal({ task, modalId }: EditTaskModalProps) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const { editTask, removeTask } = useTasksStore();
