@@ -6,6 +6,7 @@ type State = {
   addTask: (task: Task) => void;
   editTask: (task: Task) => void;
   removeTask: (id: string) => void;
+  updateTaskColumn: (activeTaskId: string, columnId: number) => void;
 };
 
 export const useTasksStore = create<State>((set) => ({
@@ -26,6 +27,13 @@ export const useTasksStore = create<State>((set) => ({
     set((state) => ({
       tasks: state.tasks.filter((task) => task.id !== id),
     }));
+  },
+  updateTaskColumn: (activeTaskId, columnId) => {
+    set((state) => ({
+      tasks: state.tasks.map((task) =>
+        task.id === activeTaskId ? { ...task, columnId } : task
+      ),
+    }))
   }
 }));
 

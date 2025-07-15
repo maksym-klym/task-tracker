@@ -5,21 +5,28 @@ import { red, amber } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useTasksStore } from "../../store/useTasksStore";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
+import {useDraggable} from '@dnd-kit/core';
 
 type TaskCardProps = {
   task: Task;
 };
 
-export function TaskCard({ task }: TaskCardProps) {
+export function TaskCard({ task, isOverlay = false }: TaskCardProps & { isOverlay?: boolean }) {
   const { removeTask } = useTasksStore();
 
   const handleDeleteTask = () => {
     removeTask(task.id);
   };
 
+  const { setNodeRef, listeners, attributes, isDragging } = useDraggable({
+    id: task.id,
+  });
+
+  const dragProps = isOverlay ? {} : { ref: setNodeRef, ...listeners, ...attributes };
+
   return (
     <>
-      <div className="card mb-3 border-0 shadow-sm dark-color-bg-card text-white">
+      <div className="card mb-3 border-0 shadow-sm dark-color-bg-card text-white" {...dragProps} style={{ opacity: isDragging && !isOverlay ? 0 : 1 }}>
         <div className="card-body">
           <div className="d-flex justify-content-between align-items-start">
             <h4 className="card-title">{task.title}</h4>
