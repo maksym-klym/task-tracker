@@ -9,7 +9,7 @@ type State = {
 };
 
 export const useTasksStore = create<State>((set) => ({
-  tasks: [],
+  tasks: JSON.parse(localStorage.getItem('tasks') ?? '[]'),
   addTask: (task) => {
     set((state) => ({
       tasks: [...state.tasks, task],
@@ -26,5 +26,14 @@ export const useTasksStore = create<State>((set) => ({
     set((state) => ({
       tasks: state.tasks.filter((task) => task.id !== id),
     }));
-  },
+  }
 }));
+
+let prevTasks: Task[] = JSON.parse(localStorage.getItem('tasks') ?? '[]');
+
+useTasksStore.subscribe((state) => {
+  if (state.tasks !== prevTasks) {
+    localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    prevTasks = state.tasks;
+  }
+});
