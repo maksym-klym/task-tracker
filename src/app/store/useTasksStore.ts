@@ -6,7 +6,7 @@ type State = {
   addTask: (task: Task) => void;
   editTask: (task: Task) => void;
   removeTask: (id: string) => void;
-  updateTaskColumn: (activeTaskId: string, columnId: number) => void;
+  updateTaskColumn: (activeTaskId: string, columnId: string) => void;
 };
 
 export const useTasksStore = create<State>((set) => ({

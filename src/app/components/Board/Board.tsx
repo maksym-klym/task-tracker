@@ -1,10 +1,14 @@
 import { type DragEndEvent, type DragStartEvent, DndContext, DragOverlay } from "@dnd-kit/core";
-import Column from "../Column/Column";
+import { Column } from "../Column/Column";
 import { useTasksStore } from "../../store/useTasksStore";
 import { useState } from "react";
 import TaskCard from "../TaskCard/TaskCard";
+import { useColumnsStore } from "../../store/useColumnsStore";
+import CreateColumnModal from "../CreateColumnModal/CreateColumnModal";
 
 export function Board() {
+  const columns = useColumnsStore((state) => state.columns);
+
   const tasks = useTasksStore((state) => state.tasks);
   const updateTaskColumn = useTasksStore((state) => state.updateTaskColumn);
 
@@ -20,7 +24,7 @@ export function Board() {
     if (!over) return;
 
     const taskId = active.id as string;
-    const newColumnId = over.id as number;
+    const newColumnId = over.id as string;
 
     updateTaskColumn(taskId, newColumnId);
 
@@ -31,19 +35,24 @@ export function Board() {
 
   return (
     <DndContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-      <div className="container my-4">
-        <div className="row g-4">
-          <div className="col-md-4">
-            <Column title="To Do" columnId={1} />
-          </div>
-          <div className="col-md-4">
-            <Column title="In Progress" columnId={2} />
-          </div>
-          <div className="col-md-4">
-            <Column title="Done" columnId={3} />
-          </div>
+      <div className="container-fluid my-4">
+        <div className="d-flex flex-nowrap gap-4">
+          {columns.map(column => (
+            <div key={column.id} className="column-item">
+              <Column column={column} />
+            </div>
+          ))}
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#columnModal"
+            className="btn btn-primary btn-add-column"
+          >
+            + Add Column
+          </button>
         </div>
       </div>
+
+      <CreateColumnModal modalId="columnModal" />
 
       <DragOverlay>
         {activeTask ? <TaskCard task={activeTask} isOverlay /> : null}

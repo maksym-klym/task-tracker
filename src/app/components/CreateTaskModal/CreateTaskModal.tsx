@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 import type { Task } from "../../types/Task";
 
 type CreateTaskModalProps = {
-  columnId: number;
+  columnId: string;
   modalId: string;
 };
 
-export default function CreatedTaskModal({ columnId, modalId }: CreateTaskModalProps) {
+export default function CreateTaskModal({ columnId, modalId }: CreateTaskModalProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { addTask } = useTasksStore();

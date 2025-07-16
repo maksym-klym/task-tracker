@@ -5,7 +5,7 @@ import { red, amber } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useTasksStore } from "../../store/useTasksStore";
 import EditTaskModal from "../EditTaskModal/EditTaskModal";
-import {useDraggable} from '@dnd-kit/core';
+import { useDraggable } from '@dnd-kit/core';
 
 type TaskCardProps = {
   task: Task;
@@ -38,19 +38,34 @@ export function TaskCard({ task, isOverlay = false }: TaskCardProps & { isOverla
                   id="dropdownMenuButton"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
+                  onPointerDown={(e) => e.stopPropagation()}
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <MoreVertIcon />
                 </button>
                 <ul className="dropdown-menu dropdown-menu-dark">
                   <li>
-                    <button className="dropdown-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target={`#editTaskModal-${task.id}`}>
+                    <button
+                      className="dropdown-item d-flex justify-content-between align-items-center"
+                      data-bs-toggle="modal"
+                      data-bs-target={`#editTaskModal-${task.id}`}
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       Edit Task
                       <EditIcon sx={{ color: amber[500] }} />
                     </button>
                   </li>
                   <li><hr /></li>
                   <li>
-                    <button className="dropdown-item d-flex justify-content-between align-items-center" onClick={handleDeleteTask}>
+                    <button
+                      className="dropdown-item d-flex justify-content-between align-items-center"
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        handleDeleteTask();
+                        e.stopPropagation();
+                      }}
+                    >
                       Delete Task
                       <DeleteForeverIcon sx={{ color: red[500] }} />
                     </button>

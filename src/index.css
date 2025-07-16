@@ -12,7 +12,7 @@ body {
 }
 
 .task-list {
-  max-height: 67vh;
+  max-height: 65vh;
 }
 
 .card-description { 
@@ -23,4 +23,13 @@ body {
 .task-list, .card-description {
   padding-right: 0.5rem;
   scrollbar-width: thin;
+}
+
+.btn-add-column {
+  max-height: 5vh;
+  min-width: 40vh;
+}
+
+.column-item {
+  min-width: 40vh;
 }
