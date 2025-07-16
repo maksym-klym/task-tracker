@@ -31,5 +31,5 @@ body {
 }
 
 .column-item {
-  min-width: 40vh;
+  width: 45vh;
 }
