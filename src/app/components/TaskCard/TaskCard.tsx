@@ -26,14 +26,14 @@ export function TaskCard({ task, isOverlay = false }: TaskCardProps & { isOverla
 
   return (
     <>
-      <div className="card mb-3 border-0 shadow-sm dark-color-bg-card text-white" {...dragProps} style={{ opacity: isDragging && !isOverlay ? 0 : 1 }}>
+      <div className="card mb-3 border-0 shadow-sm color-bg-card" {...dragProps} style={{ opacity: isDragging && !isOverlay ? 0 : 1 }}>
         <div className="card-body">
           <div className="d-flex justify-content-between align-items-start">
             <h4 className="card-title">{task.title}</h4>
             <div>
               <div className="dropdown">
                 <button
-                  className="btn p-0 border-0 bg-transparent text-white"
+                  className="btn p-0 border-0 bg-transparent dropdown-menu-btn"
                   type="button"
                   id="dropdownMenuButton"
                   data-bs-toggle="dropdown"
@@ -43,7 +43,7 @@ export function TaskCard({ task, isOverlay = false }: TaskCardProps & { isOverla
                 >
                   <MoreVertIcon />
                 </button>
-                <ul className="dropdown-menu dropdown-menu-dark">
+                <ul className="dropdown-menu dropdown-menu-color">
                   <li>
                     <button
                       className="dropdown-item d-flex justify-content-between align-items-center"

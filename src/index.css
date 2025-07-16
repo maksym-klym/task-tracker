@@ -1,18 +1,56 @@
-body {
+body.dark {
   background-color: #334155;
   color: #e5e7eb; 
 }
 
-.dark-color-bg {
+body.dark .color-bg {
   background-color: #1c232e;
+  color: white;
 }
 
-.dark-color-bg-card, .dropdown-menu-dark {
+body.dark .color-bg-card {
   background-color: #334155;
+  color: white;
+}
+
+body.dark .dropdown-menu-color {
+  background-color: #334155;
+  color: white;
+}
+
+body.dark .dropdown-menu-color button {
+  background-color: #334155;
+  color: white;
+}
+
+body.dark .dropdown-menu-btn{
+  color: white;
+}
+
+body.light {
+  color: #212529;
+}
+
+body.light .color-bg {
+  background-color: #F2EFEF;
+  color: #212529;
+}
+
+body.light .color-bg-card {
+  background-color: #fff;
+  color: #212529;
+}
+
+body.light .dropdown-menu-color {
+  background-color: #f0f0f0;
+}
+
+body.light .dropdown-menu-btn{
+  color: #212529;
 }
 
 .task-list {
-  max-height: 65vh;
+  max-height: 66vh;
 }
 
 .card-description { 
@@ -31,5 +69,6 @@ body {
 }
 
 .column-item {
-  width: 45vh;
+  min-width: 45vh;
+  max-width: 45vh;
 }

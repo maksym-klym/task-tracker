@@ -1,12 +1,28 @@
 import { type DragEndEvent, type DragStartEvent, DndContext, DragOverlay } from "@dnd-kit/core";
 import { Column } from "../Column/Column";
 import { useTasksStore } from "../../store/useTasksStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TaskCard from "../TaskCard/TaskCard";
 import { useColumnsStore } from "../../store/useColumnsStore";
 import CreateColumnModal from "../CreateColumnModal/CreateColumnModal";
 
 export function Board() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark');
+      document.body.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.add('light');
+      document.body.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
   const columns = useColumnsStore((state) => state.columns);
 
   const tasks = useTasksStore((state) => state.tasks);
@@ -35,7 +51,13 @@ export function Board() {
 
   return (
     <DndContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-      <div className="container-fluid my-4">
+      <button
+        className={`btn ${isDarkMode ? 'btn-light' : 'btn-dark'} position-absolute top-0 start-0 mt-5 ms-3`}
+        onClick={() => setIsDarkMode(previousTheme => !previousTheme)}
+      >
+        <i className={isDarkMode ? "fa-solid fa-sun" : "fa-solid fa-moon"}></i>
+      </button>
+      <div className="container-fluid my-4 ms-5">
         <div className="d-flex flex-nowrap gap-4">
           {columns.map(column => (
             <div key={column.id} className="column-item">

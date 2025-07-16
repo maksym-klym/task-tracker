@@ -29,13 +29,13 @@ export function Column({ column }: ColumnProps) {
   });
 
   return (
-    <div className="card text-white shadow dark-color-bg">
+    <div className="card shadow color-bg">
       <div className="card-body d-flex flex-column" ref={setDroppableRef}>
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h2 className="card-title text-center mb-3 ms-3">{column.title}</h2>
           <div className="dropdown">
             <button
-              className="btn p-0 border-0 bg-transparent text-white"
+              className="btn p-0 border-0 bg-transparent dropdown-menu-btn"
               type="button"
               id="dropdownMenuButton"
               data-bs-toggle="dropdown"
@@ -43,7 +43,7 @@ export function Column({ column }: ColumnProps) {
             >
               <MoreVertIcon />
             </button>
-            <ul className="dropdown-menu dropdown-menu-dark">
+            <ul className="dropdown-menu dropdown-menu-color">
               <li>
                 <button
                   className="dropdown-item d-flex justify-content-between align-items-center"

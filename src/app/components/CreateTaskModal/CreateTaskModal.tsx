@@ -40,7 +40,7 @@ export default function CreateTaskModal({ columnId, modalId }: CreateTaskModalPr
       aria-hidden="true"
     >
       <div className="modal-dialog" role="document">
-        <div className="modal-content dark-color-bg text-white">
+        <div className="modal-content color-bg">
           <div className="modal-header">
             <h5 className="modal-title" id="taskModalLabel">Add New Task</h5>
             <button type="button" className="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close" />
