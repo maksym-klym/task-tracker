@@ -42,13 +42,15 @@ export function Board() {
               <Column column={column} />
             </div>
           ))}
-          <button
-            data-bs-toggle="modal"
-            data-bs-target="#columnModal"
-            className="btn btn-primary btn-add-column"
-          >
-            + Add Column
-          </button>
+          <div className="pe-4">
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#columnModal"
+              className="btn btn-primary btn-add-column"
+            >
+              + Add Column
+            </button>
+          </div>
         </div>
       </div>
 
