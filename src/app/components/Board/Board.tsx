@@ -57,7 +57,7 @@ export function Board() {
       >
         <i className={isDarkMode ? "fa-solid fa-sun" : "fa-solid fa-moon"}></i>
       </button>
-      <div className="container-fluid my-4 ms-5">
+      <div className="container-fluid my-4 ms-5 columns-container">
         <div className="d-flex flex-nowrap gap-4">
           {columns.map(column => (
             <div key={column.id} className="column-item">

@@ -50,7 +50,11 @@ body.light .dropdown-menu-btn{
 }
 
 .task-list {
-  max-height: 66vh;
+  max-height: 29rem;
+}
+
+.columns-container {
+  width: 40rem;
 }
 
 .card-description { 
